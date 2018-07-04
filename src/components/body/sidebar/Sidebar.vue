@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar-container">
-    <div v-bind:key="eachTab.tabName" v-for="eachTab in dashboardItems">
+    <div class="each-tab-wrapper" v-bind:key="eachTab.tabName" v-for="eachTab in dashboardItems">
       <router-link :to="eachTab.routerLink" class="each-tab" exact>
         {{eachTab.tabName}}
       </router-link>
