@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import FirstTab from '../components/body/content/firstTab/FirstTab.vue'
 import SecondTab from '../components/body/content/secondTab/SecondTab.vue'
+import ThirdTab from '../components/body/content/thirdTab/ThirdTab.vue'
+import FourthTab from '../components/body/content/fourthTab/FourthTab.vue'
 
 Vue.use(Router)
 
@@ -16,6 +18,14 @@ export default new Router({
       path: '/second-tab',
       name: 'SecondTab',
       component: SecondTab
+    }, {
+      path: '/third-tab',
+      name: 'ThirdTab',
+      component: ThirdTab
+    }, {
+      path: '/fourth-tab',
+      name: 'FourthTab',
+      component: FourthTab
     },
     {
       path: '/',
