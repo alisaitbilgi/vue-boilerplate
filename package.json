@@ -15,6 +15,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "highcharts": "^6.1.1",
+    "number-gilder": "^1.1.8",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
     "vuejs-datepicker": "^1.5.2",

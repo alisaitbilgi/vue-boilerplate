@@ -1,6 +1,60 @@
 <template>
   <div class="first-tab-container">
-    <h1>This is the first tab: {{userData}}</h1>
+    <div class="badge-container">
+      <div class="data-badge">
+        <div class="badge-top-side">
+          <div class="image-part">
+            <img class="user-image" v-bind:src="userData.avatar"/>
+          </div>
+          <div class="name-part">
+            <span class="user-name">
+              {{userData.name || userData.login}}
+            </span>
+          </div>
+        </div>
+        <div class="badge-bottom-side">
+          <div class="followers-part">
+            <div class="each-field">
+              <div class="field-name">
+                followers:
+              </div>
+              <div class="field-data">
+                {{userData.followers}}
+              </div>
+            </div>
+            <div class="each-field">
+              <div class="field-name">
+                following:
+              </div>
+              <div class="field-data">
+                {{userData.following}}
+              </div>
+            </div>
+          </div>
+          <div class="repo-part">
+            <div class="each-field">
+              <div class="field-name">
+                repos:
+              </div>
+              <div class="field-data">
+                {{userData.repos}}
+              </div>
+            </div>
+            <div class="each-field">
+              <div class="field-name">
+                gists:
+              </div>
+              <div class="field-data">
+                {{userData.gists}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="search-container">
+      <input v-on:change="setUserInput" class="search-user"/>
+    </div>
   </div>
 </template>
 
