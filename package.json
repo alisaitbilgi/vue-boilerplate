@@ -16,10 +16,11 @@
     "axios": "0.18.0",
     "highcharts": "6.1.1",
     "number-gilder": "1.1.8",
+    "vodal": "^2.3.3",
     "vue": "2.5.16",
     "vue-router": "3.0.1",
-    "vuejs-datepicker": "1.5.2",
     "vue-spinner": "1.0.3",
+    "vuejs-datepicker": "1.5.2",
     "vuex": "3.0.1"
   },
   "devDependencies": {
@@ -70,7 +71,7 @@
     "url-loader": "0.5.8",
     "vue-loader": "13.3.0",
     "vue-style-loader": "3.0.1",
-    "vue-template-compiler": "2.5.2",
+    "vue-template-compiler": "2.5.16",
     "webpack": "3.6.0",
     "webpack-bundle-analyzer": "2.9.0",
     "webpack-dev-server": "2.9.1",

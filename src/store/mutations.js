@@ -11,5 +11,8 @@ export default {
   },
   SET_CSV_DATA (state, currentData) {
     state.csv = currentData
+  },
+  TOGGLE_MODAL (state, isOpen) {
+    state.isModalOpen = isOpen
   }
 }

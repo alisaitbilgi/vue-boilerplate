@@ -1,6 +1,7 @@
 const state = {
   userData: {},
-  isLoading: false
+  isLoading: false,
+  isModalOpen: false
 }
 
 export default state
