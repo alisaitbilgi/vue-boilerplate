@@ -1,13 +1,20 @@
 import axios from 'axios'
 import $store from '../../../../store/index.js'
 import {converter} from 'number-gilder'
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 
 export default function init () {
   return {
     name: 'FirstTab',
+    components: {
+      PulseLoader
+    },
     computed: {
       userData: function () {
         return $store.state.userData
+      },
+      isLoading: function () {
+        return $store.state.isLoading
       }
     },
     methods: {
@@ -18,6 +25,8 @@ export default function init () {
         event.target.value = ''
       },
       getUserData (username) {
+        $store.commit('SET_LOADER', true)
+
         axios
           .get(`https://api.github.com/users/${username}`)
           .then(val => {
@@ -29,10 +38,13 @@ export default function init () {
               gists: val.data.public_gists,
               avatar: val.data.avatar_url
             }
-
+            $store.commit('SET_LOADER', false)
             $store.commit('SET_USER_DATA', dataTbWritten)
           })
-          .catch(() => $store.commit('SET_USER_DATA', {name: 'No User Found'}))
+          .catch(() => {
+            $store.commit('SET_USER_DATA', {name: 'No User Found'})
+            $store.commit('SET_LOADER', false)
+          })
       }
     },
     mounted () {

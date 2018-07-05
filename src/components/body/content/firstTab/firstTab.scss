@@ -18,6 +18,7 @@
         width: 300px;
         height: 190px;
         border: 1px solid #949494;
+        position: relative;
 
         .badge-top-side {
           display: flex;
@@ -30,8 +31,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100%;
             width: 40px;
+            height: 40px;
 
             .user-image {
               border-radius: 6px;
@@ -42,13 +43,32 @@
 
           .name-part {
             display: flex;
+            align-items: center;
             height: 100%;
             width: 100%;
-            padding-left: 20px;
+            padding-left: 15px;
 
             .user-name {
+              display: block;
+              width: 165px;
+              max-width: 180px;
+              text-align: left;
+              font-size: 16px;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+              padding-top: 3px;
+            }
+            .see-details-btn {
               display: flex;
               align-items: center;
+              justify-content: center;
+              width: 65px;
+              height: 30px;
+              border-radius: 4px;
+              background: linear-gradient(to bottom, #00ccff, #6655cc);
+              color: #fff;
+              cursor: pointer;
             }
           }
         }
@@ -83,6 +103,11 @@
               }
             }
           }
+        }
+        .v-spinner {
+          position: absolute;
+          top: 100px;
+          left: 120px;
         }
       }
     }

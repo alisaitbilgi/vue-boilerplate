@@ -2,17 +2,21 @@
   <div class="first-tab-container">
     <div class="badge-container">
       <div class="data-badge">
-        <div class="badge-top-side">
+        <pulse-loader :loading="isLoading" />
+        <div v-if="!isLoading" class="badge-top-side">
           <div class="image-part">
             <img class="user-image" v-bind:src="userData.avatar"/>
           </div>
           <div class="name-part">
-            <span class="user-name">
+            <div class="user-name">
               {{userData.name || userData.login}}
-            </span>
+            </div>
+            <div class="see-details-btn" v-if="!isLoading && userData.followers">
+              Details
+            </div>
           </div>
         </div>
-        <div class="badge-bottom-side">
+        <div v-if="!isLoading" class="badge-bottom-side">
           <div class="followers-part">
             <div class="each-field">
               <div class="field-name">
