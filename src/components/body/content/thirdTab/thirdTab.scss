@@ -1,8 +1,8 @@
 .content-container {
-  .first-tab-container {
-    display: flex;
+  .third-tab-container {   
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 100%;
     height: 100%;
   }

@@ -9,7 +9,7 @@ export default {
   SET_POSTS (state, currentData) {
     state.postList = currentData
   },
-  SET_CSV_DATA (state, currentData) {
-    state.csv = currentData
+  SET_DATE (state, currentData) {
+    state.vModelExample = currentData
   }
 }

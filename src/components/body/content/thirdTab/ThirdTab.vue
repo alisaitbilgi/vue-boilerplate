@@ -1,6 +1,8 @@
 <template>
-  <div class="first-tab-container">
+  <div class="third-tab-container">
    <div id="container"></div>
+   <datepicker placeholder="Select Date" v-model="vModelExample" :format="customFormatter"></datepicker>
+    <p>{{ customFormatter(vModelExample) }}</p>
   </div>
 </template>
 

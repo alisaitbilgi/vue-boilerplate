@@ -1,6 +1,8 @@
 
 import $store from '../../../../store/index.js'
 import thirdTabAPI from './thirdTabAPI.js'
+import Datepicker from 'vuejs-datepicker'
+import moment from 'moment'
 
 export default function init () {
   return {
@@ -37,9 +39,23 @@ export default function init () {
     mounted: function () {
       thirdTabAPI.getHighchartsData(this.cities)
     },
+    components: {
+      Datepicker
+    },
+    methods: {
+      customFormatter: date => moment(date).format('MMMM Do YYYY, h:mm:ss a')
+    },
     computed: {
       postList: function () {
         return $store.state.postList
+      },
+      vModelExample: {
+        get: () => $store.state.vModelExample,
+        set (v) {
+          $store.commit('SET_DATE', v)
+
+          console.log($store.state.vModelExample)
+        }
       }
     }
   }
