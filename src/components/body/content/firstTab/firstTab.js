@@ -2,12 +2,18 @@ import axios from 'axios'
 import $store from '../../../../store/index.js'
 import {converter} from 'number-gilder'
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+import Vodal from 'vodal'
+import DetailsTable from './detailsTable/DetailsTable.vue'
+import 'vodal/common.css'
+import 'vodal/rotate.css'
 
 export default function init () {
   return {
     name: 'FirstTab',
     components: {
-      PulseLoader
+      PulseLoader,
+      Vodal,
+      DetailsTable
     },
     computed: {
       userData: function () {
@@ -15,6 +21,9 @@ export default function init () {
       },
       isLoading: function () {
         return $store.state.isLoading
+      },
+      isModalOpen: function () {
+        return $store.state.isModalOpen
       }
     },
     methods: {
@@ -36,7 +45,9 @@ export default function init () {
               following: converter(val.data.following),
               repos: val.data.public_repos,
               gists: val.data.public_gists,
-              avatar: val.data.avatar_url
+              avatar: val.data.avatar_url,
+              location: val.data.location || 'not defined',
+              company: val.data.company || 'not defined'
             }
             $store.commit('SET_LOADER', false)
             $store.commit('SET_USER_DATA', dataTbWritten)
@@ -45,6 +56,9 @@ export default function init () {
             $store.commit('SET_USER_DATA', {name: 'No User Found'})
             $store.commit('SET_LOADER', false)
           })
+      },
+      toggleModal (isOpen) {
+        $store.commit('TOGGLE_MODAL', isOpen)
       }
     },
     mounted () {

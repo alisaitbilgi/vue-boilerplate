@@ -1,20 +1,6 @@
 import Highcharts from 'highcharts'
-import axios from 'axios'
-import $store from '../../../../store/index.js'
 
 const thirdTabAPI = {
-  getPosts: function () {
-    axios.get('https://jsonplaceholder.typicode.com/posts')
-      .then(function (response) {
-        $store.commit('SET_POSTS', response.data)
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
-      .then(function () {
-        // always executed
-      })
-  },
   getHighchartsData: function (cities) {
     Highcharts.chart('container', {
       chart: {

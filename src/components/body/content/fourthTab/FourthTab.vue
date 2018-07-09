@@ -1,7 +1,8 @@
 <template>
-  <div class="first-tab-container">
-    <h1>This is the first tab: {{userData}}</h1>
-  </div>
+  <vuetable ref="vuetable"
+    api-url="https://jsonplaceholder.typicode.com/posts"
+    :fields="fields"
+  ></vuetable>
 </template>
 
 <script>

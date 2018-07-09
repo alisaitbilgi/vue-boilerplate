@@ -49,12 +49,16 @@ export default function init () {
       postList: function () {
         return $store.state.postList
       },
-      vModelExample: {
-        get: () => $store.state.vModelExample,
+      startDate: {
+        get: () => $store.state.startDate,
         set (v) {
-          $store.commit('SET_DATE', v)
-
-          console.log($store.state.vModelExample)
+          $store.commit('SET_START_DATE', v)
+        }
+      },
+      endDate: {
+        get: () => $store.state.endDate,
+        set (v) {
+          $store.commit('SET_END_DATE', v)
         }
       }
     }

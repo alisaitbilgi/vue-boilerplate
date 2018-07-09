@@ -1,17 +1,39 @@
 // import axios from 'axios'
+import axios from 'axios'
 import $store from '../../../../store/index.js'
+import Vuetable from 'vuetable-2/src/components/Vuetable'
 
 export default function init () {
   return {
     name: 'FirstTab',
+    data: function () {
+      return {
+        fields: ['id', 'title', 'body']
+      }
+    },
     mounted () {
-      const data = {a: 5, b: 7}
-
-      $store.commit('SET_USER_DATA', data)
+      this.getPosts()
     },
     computed: {
-      userData: function () {
-        return $store.state.userData
+      postList: function () {
+        return $store.state.postList
+      }
+    },
+    components: {
+      Vuetable
+    },
+    methods: {
+      getPosts: function () {
+        axios.get('https://jsonplaceholder.typicode.com/posts')
+          .then(function (response) {
+            $store.commit('SET_POSTS', response.data)
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+          .then(function () {
+            // always executed
+          })
       }
     }
   }

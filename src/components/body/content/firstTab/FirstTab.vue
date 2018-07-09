@@ -1,5 +1,15 @@
 <template>
   <div class="first-tab-container">
+    <vodal
+      :show="isModalOpen"
+      animation="fade"
+      closeOnEsc @clickMask="toggleModal(false)"
+      @hide="toggleModal(false)"
+      width=400
+      height=450
+    >
+      <DetailsTable />
+    </vodal>
     <div class="badge-container">
       <div class="data-badge">
         <pulse-loader :loading="isLoading" />
@@ -11,7 +21,11 @@
             <div class="user-name">
               {{userData.name || userData.login}}
             </div>
-            <div class="see-details-btn" v-if="!isLoading && userData.followers">
+            <div
+              class="see-details-btn"
+              v-if="!isLoading && userData.followers"
+              v-on:click="toggleModal(true)"
+            >
               Details
             </div>
           </div>
