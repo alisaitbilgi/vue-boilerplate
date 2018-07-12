@@ -4,8 +4,8 @@ const state = {
   vModelExample: null,
   isModalOpen: false,
   postList: [],
-  fetchList: [],
-  selectedUserName: ''
+  userList: [],
+  selectedUser: {name: '', account: ''}
 }
 
 export default state

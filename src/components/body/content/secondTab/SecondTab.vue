@@ -4,15 +4,18 @@
       <img src="../../../../assets/info-icon.png"/>
     </div>
     <multiselect
-      :value="selectedUserName"
-      :options="fetchList"
+      :options="userList"
       :close-on-select="true"
-      :show-labels="false"
+      trackBy="name"
+      label="name"
       :clear-on-select="false"
-      placeholder="Select a user from fetchlist"
+      placeholder="Select a user to fetch"
       @select="setSelectedUser"
     >
     </multiselect>
+    <div v-if="selectedUser.name !== ''" class="badge-container">
+      <GitBadge />
+    </div>
   </div>
 </template>
 

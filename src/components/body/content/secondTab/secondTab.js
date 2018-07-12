@@ -1,34 +1,44 @@
 import $store from '../../../../store'
 import Multiselect from 'vue-multiselect'
+import {uniquifyArrayOfObjects, getUserData} from '../../../../utils/utils.js'
+import GitBadge from '../firstTab/gitBadge/GitBadge.vue'
 
 export default function controller () {
   function getDropdownOptions (userList) {
-    const defaultUserList = userList.map(each => each.name).filter(each => (each !== 'No User Found'))
+    const defaultUserList = userList
+      .filter(each => (each.name !== 'No User Found'))
+      .map(each => {
+        return {
+          name: each.name,
+          account: each.account
+        }
+      })
 
-    // here I'm returning uniquified user list
-    return [...new Set(defaultUserList)]
+    return uniquifyArrayOfObjects(defaultUserList, 'name')
   }
 
   return {
     name: 'SecondTab',
     components: {
-      Multiselect
+      Multiselect,
+      GitBadge
     },
     computed: {
-      selectedUserName: function () {
-        return $store.state.selectedUserName
+      selectedUser: function () {
+        return $store.state.selectedUser
       },
-      fetchList: function () {
-        return getDropdownOptions($store.state.fetchList)
+      userList: function () {
+        return getDropdownOptions($store.state.userList)
       }
     },
     methods: {
-      setSelectedUser (userName) {
-        $store.commit('SET_SELECTED_USER', userName)
+      setSelectedUser (user) {
+        $store.commit('SET_SELECTED_USER', user)
+        getUserData(user.account, $store)
       }
     },
     beforeDestroy () {
-      this.setSelectedUser('')
+      this.setSelectedUser({name: '', account: ''})
     }
   }
 }

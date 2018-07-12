@@ -2,7 +2,10 @@
 export default {
   SET_USER_DATA (state, currentData) {
     state.userData = currentData
-    state.fetchList.push(currentData)
+
+    if (currentData.name && currentData.name !== 'No User Found') {
+      state.userList.push(currentData)
+    }
   },
   SET_LOADER (state, isLoading) {
     state.isLoading = isLoading
@@ -24,7 +27,7 @@ export default {
   TOGGLE_MODAL (state, isOpen) {
     state.isModalOpen = isOpen
   },
-  SET_SELECTED_USER (state, userName) {
-    state.selectedUserName = userName
+  SET_SELECTED_USER (state, user) {
+    state.selectedUser = user
   }
 }

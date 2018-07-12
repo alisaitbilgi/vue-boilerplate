@@ -1,5 +1,15 @@
 <template>
     <div class="badge-container">
+      <vodal
+        :show="isModalOpen"
+        animation="fade"
+        closeOnEsc @clickMask="toggleModal(false)"
+        @hide="toggleModal(false)"
+        :width=400
+        :height=450
+      >
+        <DetailsTable />
+      </vodal>
       <div class="data-badge">
         <pulse-loader :loading="isLoading" />
         <div v-if="!isLoading" class="badge-top-side">

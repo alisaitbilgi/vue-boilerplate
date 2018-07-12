@@ -1,26 +1,14 @@
-import axios from 'axios'
+import {getUserData} from '../../../../utils/utils.js'
 import $store from '../../../../store/index.js'
-import {converter} from 'number-gilder'
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
-import Vodal from 'vodal'
-import DetailsTable from './detailsTable/DetailsTable.vue'
 import GitBadge from './gitBadge/GitBadge.vue'
-import 'vodal/common.css'
-import 'vodal/rotate.css'
 
 export default function controller () {
   return {
     name: 'FirstTab',
     components: {
       PulseLoader,
-      Vodal,
-      DetailsTable,
       GitBadge
-    },
-    computed: {
-      isModalOpen: function () {
-        return $store.state.isModalOpen
-      }
     },
     methods: {
       setUserInput (event) {
@@ -30,31 +18,7 @@ export default function controller () {
         event.target.value = ''
       },
       getUserData (username) {
-        $store.commit('SET_LOADER', true)
-
-        axios
-          .get(`https://api.github.com/users/${username}`)
-          .then(val => {
-            const dataTbWritten = {
-              name: val.data.name || val.data.login,
-              followers: converter(val.data.followers),
-              following: converter(val.data.following),
-              repos: val.data.public_repos,
-              gists: val.data.public_gists,
-              avatar: val.data.avatar_url,
-              location: val.data.location || 'not defined',
-              company: val.data.company || 'not defined'
-            }
-            $store.commit('SET_LOADER', false)
-            $store.commit('SET_USER_DATA', dataTbWritten)
-          })
-          .catch(() => {
-            $store.commit('SET_USER_DATA', {name: 'No User Found'})
-            $store.commit('SET_LOADER', false)
-          })
-      },
-      toggleModal (isOpen) {
-        $store.commit('TOGGLE_MODAL', isOpen)
+        getUserData(username, $store)
       }
     },
     mounted () {
