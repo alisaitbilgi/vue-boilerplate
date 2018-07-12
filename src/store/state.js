@@ -3,7 +3,9 @@ const state = {
   isLoading: false,
   vModelExample: null,
   isModalOpen: false,
-  postList: []
+  postList: [],
+  fetchList: [],
+  selectedUserName: ''
 }
 
 export default state

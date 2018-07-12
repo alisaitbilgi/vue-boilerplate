@@ -4,24 +4,20 @@ import {converter} from 'number-gilder'
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 import Vodal from 'vodal'
 import DetailsTable from './detailsTable/DetailsTable.vue'
+import GitBadge from './gitBadge/GitBadge.vue'
 import 'vodal/common.css'
 import 'vodal/rotate.css'
 
-export default function init () {
+export default function controller () {
   return {
     name: 'FirstTab',
     components: {
       PulseLoader,
       Vodal,
-      DetailsTable
+      DetailsTable,
+      GitBadge
     },
     computed: {
-      userData: function () {
-        return $store.state.userData
-      },
-      isLoading: function () {
-        return $store.state.isLoading
-      },
       isModalOpen: function () {
         return $store.state.isModalOpen
       }

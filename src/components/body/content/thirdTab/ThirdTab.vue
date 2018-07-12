@@ -10,7 +10,7 @@
 
 <script>
 import './thirdTab.scss'
-import init from './thirdTab.js'
+import controller from './thirdTab.js'
 
-export default init()
+export default controller()
 </script>

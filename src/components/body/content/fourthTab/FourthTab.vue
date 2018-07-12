@@ -7,7 +7,7 @@
 
 <script>
 import './fourthTab.scss'
-import init from './fourthTab.js'
+import controller from './fourthTab.js'
 
-export default init()
+export default controller()
 </script>

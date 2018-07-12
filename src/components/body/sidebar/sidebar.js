@@ -1,5 +1,5 @@
 
-export default function init () {
+export default function controller () {
   return {
     name: 'Sidebar',
     data () {

@@ -4,7 +4,7 @@ import thirdTabAPI from './thirdTabAPI.js'
 import Datepicker from 'vuejs-datepicker'
 import moment from 'moment'
 
-export default function init () {
+export default function controller () {
   return {
     name: 'ThirdTab',
     data: function () {
