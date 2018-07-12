@@ -13,9 +13,11 @@ export default function controller () {
       },
       isLoading: function () {
         return $store.state.isLoading
-      },
-      isModalOpen: function () {
-        return $store.state.isModalOpen
+      }
+    },
+    methods: {
+      toggleModal (isOpen) {
+        $store.commit('TOGGLE_MODAL', isOpen)
       }
     }
   }
