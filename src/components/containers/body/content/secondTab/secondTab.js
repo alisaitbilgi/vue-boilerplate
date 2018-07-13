@@ -1,7 +1,8 @@
-import $store from '../../../../store'
+import $store from '../../../../../store/index.js'
 import Multiselect from 'vue-multiselect'
-import {uniquifyArrayOfObjects, getUserData} from '../../../../utils/utils.js'
-import GitBadge from '../firstTab/gitBadge/GitBadge.vue'
+import Tooltip from '../../../../presenters/tooltip/Tooltip.vue'
+import {uniquifyArrayOfObjects, getUserData} from '../../../../../utils/utils.js'
+import GitBadge from '../../../../presenters/gitBadge/GitBadge.vue'
 
 export default function controller () {
   function getDropdownOptions (userList) {
@@ -21,7 +22,8 @@ export default function controller () {
     name: 'SecondTab',
     components: {
       Multiselect,
-      GitBadge
+      GitBadge,
+      Tooltip
     },
     computed: {
       selectedUser: function () {
@@ -38,7 +40,7 @@ export default function controller () {
       }
     },
     beforeDestroy () {
-      this.setSelectedUser({name: '', account: ''})
+      this.setSelectedUser({name: 'Select a user', account: ''})
     }
   }
 }

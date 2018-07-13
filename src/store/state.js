@@ -5,7 +5,7 @@ const state = {
   isModalOpen: false,
   postList: [],
   userList: [],
-  selectedUser: {name: '', account: ''}
+  selectedUser: {name: 'Select a user', account: ''}
 }
 
 export default state

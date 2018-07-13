@@ -1,4 +1,4 @@
-import $store from '../../../../../store/index.js'
+import $store from '../../../store/index.js'
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 import Vodal from 'vodal'
 import DetailsTable from '../detailsTable/DetailsTable.vue'

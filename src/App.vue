@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import Navbar from './components/navbar/Navbar.vue'
-import Body from './components/body/Body.vue'
-import Footer from './components/footer/Footer.vue'
+import Navbar from './components/containers/navbar/Navbar.vue'
+import Body from './components/containers/body/Body.vue'
+import Footer from './components/containers/footer/Footer.vue'
 import './app.scss'
 
 export default {
