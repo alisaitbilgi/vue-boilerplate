@@ -3,7 +3,11 @@ const state = {
   isLoading: false,
   vModelExample: null,
   isModalOpen: false,
-  postList: []
+  postList: [],
+  form: {
+    startDate: null,
+    endDate: null
+  }
 }
 
 export default state

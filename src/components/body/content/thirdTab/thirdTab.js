@@ -3,12 +3,15 @@ import $store from '../../../../store/index.js'
 import thirdTabAPI from './thirdTabAPI.js'
 import Datepicker from 'vuejs-datepicker'
 import moment from 'moment'
+import axios from 'axios'
 
 export default function init () {
   return {
     name: 'ThirdTab',
     data: function () {
       return {
+        startDate: null,
+        endDate: null,
         cities: [{
           name: 'Tokyo',
           data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
@@ -43,23 +46,43 @@ export default function init () {
       Datepicker
     },
     methods: {
-      customFormatter: date => moment(date).format('MMMM Do YYYY, h:mm:ss a')
+      customFormatter: date => moment(date).format('MMMM Do YYYY, h:mm:ss a'),
+      getWeatherData: () => {
+        console.log("geldim");
+        axios.get('http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=f6e48e0ff2e2dc8a207065d39e9acd5f')
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+          .then(function () {
+            // always executed
+          })
+      },
+      getWeatherFromAnother: () => {
+        axios.get('https://www.metaweather.com/api/location/44418/2013/4/27/')
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+          .then(function () {
+            // always executed
+          })
+
+
+      }
     },
     computed: {
-      postList: function () {
-        return $store.state.postList
+      handleStartDate: {
+        get: () => $store.state.form.startDate,
+        set: v => $store.commit('SET_START_DATE', v)
       },
-      startDate: {
-        get: () => $store.state.startDate,
-        set (v) {
-          $store.commit('SET_START_DATE', v)
-        }
-      },
-      endDate: {
-        get: () => $store.state.endDate,
-        set (v) {
-          $store.commit('SET_END_DATE', v)
-        }
+      handleEndDate: {
+        get: () => $store.state.form.endDate,
+        set: v => $store.commit('SET_END_DATE', v)
       }
     }
   }
