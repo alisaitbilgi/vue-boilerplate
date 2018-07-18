@@ -7,7 +7,10 @@ const state = {
   form: {
     startDate: null,
     endDate: null
-  }
+  },
+  userList: [],
+  selectedUser: {name: '', account: ''},
+  weatherData: []
 }
 
 export default state

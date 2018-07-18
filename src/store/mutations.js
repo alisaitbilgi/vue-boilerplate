@@ -2,6 +2,10 @@
 export default {
   SET_USER_DATA (state, currentData) {
     state.userData = currentData
+
+    if (currentData.name && currentData.name !== 'No User Found') {
+      state.userList.push(currentData)
+    }
   },
   SET_LOADER (state, isLoading) {
     state.isLoading = isLoading
@@ -17,10 +21,13 @@ export default {
 
     console.log(currentData)
   },
-  SET_CSV_DATA (state, currentData) {
-    state.csv = currentData
+  SET_WEATHER_DATA (state, currentData) {
+    state.weatherData = currentData
   },
   TOGGLE_MODAL (state, isOpen) {
     state.isModalOpen = isOpen
+  },
+  SET_SELECTED_USER (state, user) {
+    state.selectedUser = user
   }
 }

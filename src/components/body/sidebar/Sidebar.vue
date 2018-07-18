@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import init from './sidebar.js'
+import controller from './sidebar.js'
 import './sidebar.scss'
 
-export default init()
+export default controller()
 </script>

@@ -1,0 +1,64 @@
+.content-container {
+  .second-tab {
+    display: flex;
+    width: calc(100% - 150px);
+    height: calc(100% - 150px);
+    padding: 75px;
+
+    .tab-content {
+      display: flex;
+      width: 100%;
+      height: calc(100% - 80px);
+      flex-direction: column;
+      border-radius: 12px;
+      background-color: #ffffff;
+      padding: 40px;
+
+      .explanation-container {
+        display: flex;
+        width: 100%;
+        height: 100px;
+
+        img {
+          width: 25px;
+          height: 25px;
+        }
+      }
+
+      .user-selection-container {
+        display: flex;
+
+        .user-selector-part {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+
+          .multiselect {
+            min-width: 250px;
+
+            .multiselect__option {
+              &:after {
+                all: unset;
+              }
+            }
+            .multiselect__option--highlight {
+              background: #f3f3f3;
+              color: #35495e;
+            }
+          }
+        }
+        .badge-part {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+
+          .badge-container {
+            align-items: flex-start;
+          }
+        }
+      }
+    }
+  }
+}

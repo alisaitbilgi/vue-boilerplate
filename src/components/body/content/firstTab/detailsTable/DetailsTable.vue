@@ -19,8 +19,8 @@
 
 <script>
 import './detailsTable.scss'
-import init from './detailsTable.js'
+import controller from './detailsTable.js'
 
-export default init()
+export default controller()
 
 </script>

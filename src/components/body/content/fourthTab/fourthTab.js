@@ -3,7 +3,7 @@ import axios from 'axios'
 import $store from '../../../../store/index.js'
 import Vuetable from 'vuetable-2/src/components/Vuetable'
 
-export default function init () {
+export default function controller () {
   return {
     name: 'FirstTab',
     data: function () {

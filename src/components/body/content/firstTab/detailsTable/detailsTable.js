@@ -1,6 +1,6 @@
 import $store from '../../../../../store/index.js'
 
-export default function init () {
+export default function controller () {
   return {
     name: 'DetailsTable',
     computed: {
