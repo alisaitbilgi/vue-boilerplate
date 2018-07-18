@@ -1,7 +1,7 @@
-import {getUserData} from '../../../../utils/utils.js'
-import $store from '../../../../store/index.js'
+import {getUserData} from '../../../../../utils/utils.js'
+import $store from '../../../../../store/index.js'
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
-import GitBadge from './gitBadge/GitBadge.vue'
+import GitBadge from '../../../../presenters/gitBadge/GitBadge.vue'
 
 export default function controller () {
   return {

@@ -1,6 +1,6 @@
 // import axios from 'axios'
 import axios from 'axios'
-import $store from '../../../../store/index.js'
+import $store from '../../../../../store/index.js'
 import Vuetable from 'vuetable-2/src/components/Vuetable'
 
 export default function controller () {

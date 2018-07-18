@@ -2,7 +2,8 @@
   <div class="second-tab">
     <div class="tab-content">
       <div class="explanation-container">
-        <img src="../../../../assets/info-icon.png"/>
+        <img src="../../../../../assets/info-icon.png"/>
+        <Tooltip />
       </div>
       <div class="user-selection-container">
         <div class="user-selector-part">
@@ -13,12 +14,12 @@
             trackBy="name"
             label="name"
             :clear-on-select="false"
-            placeholder="Select a user to fetch"
+            placeholder="Select a user"
             @select="setSelectedUser"
           >
           </multiselect>
         </div>
-        <div v-if="selectedUser.name !== ''" class="badge-part">
+        <div v-if="selectedUser.name !== 'Select a user'" class="badge-part">
           <GitBadge />
         </div>
       </div>
@@ -32,4 +33,4 @@ import controller from './secondTab.js'
 
 export default controller()
 </script>
-<style src="../../../../../node_modules/vue-multiselect/dist/vue-multiselect.min.css"></style>
+<style src="../../../../../../node_modules/vue-multiselect/dist/vue-multiselect.min.css"></style>

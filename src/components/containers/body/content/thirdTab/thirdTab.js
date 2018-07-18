@@ -1,5 +1,5 @@
 
-import $store from '../../../../store/index.js'
+import $store from '../../../../../store/index.js'
 import Datepicker from 'vuejs-datepicker'
 import moment from 'moment'
 import axios from 'axios'

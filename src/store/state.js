@@ -9,8 +9,8 @@ const state = {
     endDate: null
   },
   userList: [],
-  selectedUser: {name: '', account: ''},
-  weatherData: []
+  weatherData: [],
+  selectedUser: {name: 'Select a user', account: ''}
 }
 
 export default state
