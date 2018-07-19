@@ -21,8 +21,8 @@ export default {
 
     console.log(currentData)
   },
-  SET_CSV_DATA (state, currentData) {
-    state.csv = currentData
+  SET_WEATHER_DATA (state, currentData) {
+    state.weatherData = currentData
   },
   TOGGLE_MODAL (state, isOpen) {
     state.isModalOpen = isOpen
