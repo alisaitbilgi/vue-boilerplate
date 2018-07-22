@@ -18,8 +18,6 @@ export default {
   },
   SET_END_DATE (state, currentData) {
     state.endDate = currentData
-
-    console.log(currentData)
   },
   SET_WEATHER_DATA (state, currentData) {
     state.weatherData = currentData

@@ -1,9 +1,9 @@
 .content-container {
-  .first-tab-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+  .post-table-container {
+    width: 600px;
+    .post-table {
+      background: #fff;
+      margin-top: 20px;
+    }
   }
 }

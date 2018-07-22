@@ -1,14 +1,21 @@
 // import axios from 'axios'
 import axios from 'axios'
 import $store from '../../../../../store/index.js'
-import Vuetable from 'vuetable-2/src/components/Vuetable'
+import Vuetify from 'vuetify'
+import Vue from 'vue'
+
+Vue.use(Vuetify)
 
 export default function controller () {
   return {
     name: 'FirstTab',
     data: function () {
       return {
-        fields: ['id', 'title', 'body']
+        headers: [
+          {text: 'Title', align: 'left', sortable: false, value: 'title'},
+          {text: 'Id', value: 'id'},
+          {text: 'User Id', value: 'userId'}
+        ]
       }
     },
     mounted () {
@@ -20,7 +27,6 @@ export default function controller () {
       }
     },
     components: {
-      Vuetable
     },
     methods: {
       getPosts: function () {

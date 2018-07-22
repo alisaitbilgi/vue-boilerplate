@@ -1,6 +1,11 @@
 .application-footer {
-  .footer-text {
-    padding-left: 180px;
-    color: #fff;
+  .footer-card {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  .navbar-router-link {
+    text-decoration: none;
+    width: 150px;
   }
 }

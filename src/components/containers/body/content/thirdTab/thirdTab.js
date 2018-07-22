@@ -4,6 +4,7 @@ import Datepicker from 'vuejs-datepicker'
 import moment from 'moment'
 import axios from 'axios'
 import Highcharts from 'highcharts'
+import {uniquifyArrayOfPrimitives} from '../../../../../utils/utils.js'
 
 export default function controller () {
   return {
@@ -43,16 +44,16 @@ export default function controller () {
             this.getHighchartsData()
           })
           .catch(function (error) {
-            console.log(error)
+            //console.log(error)
           })
           .then(function () {
             // always executed
           })
       },
       getHighchartsData () {
-        let data = this.weatherData
-        const nameList = data.map(val => this.generateCityData(val.name, val.temp))
-   //console.log(dateList)
+        const data = this.weatherData
+        const bok = data.map(val => val.map(item => item.name))
+        const nameList = bok.map(item => uniquifyArrayOfPrimitives(item))
         Highcharts.chart('container', {
           chart: {
             type: 'spline'
@@ -91,7 +92,6 @@ export default function controller () {
         })
       },
       generateCityData (name, data) {
-        console.log(name);
         return {
           name,
           marker: {
