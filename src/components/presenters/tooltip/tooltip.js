@@ -3,7 +3,7 @@ export default function controller () {
     name: 'Tooltip',
     computed: {
       tooltipText: function () {
-        return 'fuck you'
+        return 'tool you'
       }
     }
   }
