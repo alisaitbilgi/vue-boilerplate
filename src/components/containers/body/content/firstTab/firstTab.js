@@ -11,18 +11,15 @@ export default function controller () {
       GitBadge
     },
     methods: {
-      setUserInput (event) {
+      setUserName (event) {
         if (event.target.value) {
-          this.getUserData(event.target.value)
+          getUserData(event.target.value, $store)
         }
         event.target.value = ''
-      },
-      getUserData (username) {
-        getUserData(username, $store)
       }
     },
     mounted () {
-      // this.getUserData('nzakas')
+      // getUserData('nzakas', $store)
     }
   }
 }
