@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <Navbar />
+    <Navbar navbar-title="Linovi Vue Project">
+      <img class="navbar-logo" src="./assets/logo.png" />
+    </Navbar>
     <Body />
     <Footer />
   </div>

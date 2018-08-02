@@ -1,19 +1,13 @@
 <template>
   <div class="application-body">
-    <Sidebar />
+    <Sidebar v-bind:dashboard-items="dashboardItems"/>
     <ContentView />
   </div>
 </template>
 
 <script>
-import ContentView from './content/ContentView.vue'
-import Sidebar from './sidebar/Sidebar.vue'
+import controller from './body.js'
 
-export default {
-  name: 'AppBody',
-  components: {
-    Sidebar,
-    ContentView
-  }
-}
+export default controller()
 </script>
+s
