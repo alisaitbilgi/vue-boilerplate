@@ -19,7 +19,7 @@ export default function controller () {
       }
     },
     mounted () {
-      // getUserData('nzakas', $store)
+      getUserData('nzakas', $store)
     }
   }
 }

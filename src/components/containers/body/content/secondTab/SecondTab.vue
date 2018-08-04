@@ -2,7 +2,6 @@
   <div class="second-tab">
     <div class="tab-content">
       <div class="explanation-container">
-        <img src="../../../../../assets/info-icon.png"/>
         <Tooltip />
       </div>
       <div class="user-selection-container">

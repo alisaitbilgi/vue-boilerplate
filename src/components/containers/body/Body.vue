@@ -10,4 +10,3 @@ import controller from './body.js'
 
 export default controller()
 </script>
-s

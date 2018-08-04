@@ -19,7 +19,7 @@ export default function controller () {
       }
     },
     mounted: function () {
-      
+
     },
     components: {
       Datepicker
@@ -44,7 +44,7 @@ export default function controller () {
             this.getHighchartsData()
           })
           .catch(function (error) {
-            //console.log(error)
+            // console.log(error)
           })
           .then(function () {
             // always executed

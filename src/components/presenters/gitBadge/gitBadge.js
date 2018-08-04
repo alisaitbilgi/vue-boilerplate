@@ -28,9 +28,6 @@ export default function controller () {
       toggleModal (isOpen) {
         $store.commit('TOGGLE_MODAL', isOpen)
       }
-    },
-    beforeDestroy () {
-      $store.commit('SET_USER_DATA', {name: 'No User Found'})
     }
   }
 }
