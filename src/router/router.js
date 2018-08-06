@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import FirstTab from '../components/containers/body/content/firstTab/FirstTab.vue'
-import SecondTab from '../components/containers/body/content/secondTab/SecondTab.vue'
-import ThirdTab from '../components/containers/body/content/thirdTab/ThirdTab.vue'
-import FourthTab from '../components/containers/body/content/fourthTab/FourthTab.vue'
+import FirstTab from '../components/FirstTab.vue'
+import SecondTab from '../components/SecondTab.vue'
+import ThirdTab from '../components/ThirdTab.vue'
+import FourthTab from '../components/FourthTab.vue'
 
 Vue.use(Router)
 
