@@ -35,6 +35,7 @@ export default {
       align-items: center;
       justify-content: center;
       width: calc(100% - 180px);
+      margin-left: -60px;
     }
   }
 </style>

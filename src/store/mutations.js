@@ -1,6 +1,8 @@
 
 export default {
-  SET_ANYTHING: function (state, data) {
-    state.initialValues = data
+  SET_CURRENT_TODO: function (state, data) {
+    if (Array.isArray(state.todoItemList)) {
+      state.todoItemList.push(data)
+    }
   }
 }
