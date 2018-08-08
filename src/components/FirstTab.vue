@@ -46,6 +46,12 @@
 import $store from '../store/index.js'
 
 export default {
+  mounted () {
+    document.addEventListener('keypress', this.handleOnSubmit(this.setTodoItem))
+  },
+  beforeDestroy () {
+    document.removeEventListener('keypress', this.handleOnSubmit)
+  },
   computed: {
     todoItemList: function () {
       return $store.state.todoItemList
@@ -66,6 +72,13 @@ export default {
       if (todoItemText !== '') {
         $store.commit('SET_CURRENT_TODO', todoItemTbAdded)
         todoItemInput.value = ''
+      }
+    },
+    handleOnSubmit: function (executer) {
+      return (e) => {
+        if (e.charCode === 13) {
+          executer()
+        }
       }
     }
   }
