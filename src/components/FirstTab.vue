@@ -1,8 +1,15 @@
 <template>
   <div class="first-tab-container">
     <div class="todo-app-container">
-      <form class="todo-add-wrapper" v-on:submit.prevent="setTodoItem">
+      <form class="todo-add-wrapper">
         <div class="todo-item-text-wrapper">
+          <div class="todo-item-type-selector">
+            <v-select
+              :items="todoSelections"
+              label="Select Todo Type"
+              :single-line="true"
+            ></v-select>
+          </div>
           <input id="todo-item-text-input" class="todo-item-text" placeholder="What To Do?" autocomplete="off"/>
         </div>
         <div class="todo-add-btn" v-on:click="setTodoItem">
@@ -42,6 +49,9 @@ export default {
   computed: {
     todoItemList: function () {
       return $store.state.todoItemList
+    },
+    todoSelections: function () {
+      return ['Travel', 'Work', 'Personal']
     }
   },
   methods: {
@@ -83,24 +93,32 @@ export default {
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        width: 100%;
+        width: calc(100 - 110px);
         height: 40px;
         padding: 10px 0;
 
         .todo-item-text-wrapper {
           display: flex;
-          justify-content: center;
           width: 100%;
+          padding: 0 10px;
+
+          .todo-item-type-selector {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 39px;
+          }
+
           .todo-item-text {
-            width: calc(100% - 60px);
-            max-width: 300px;
+            width: 250px;
             height: 15px;
             border-radius: 4px;
             background-color: #ffffff;
             border: solid 1px #d4d4d4;
             padding: 10px;
             position: relative;
-            left: 35px;
+            left: 100px;
           }
         }
         .todo-add-btn {
@@ -128,7 +146,7 @@ export default {
           justify-content: space-between;
           height: 20px;
           margin-bottom: 10px;
-          padding: 0 15px;
+          padding: 0 20px 0 15px;
         }
         .todo-list-content {
           max-height: 400px;
@@ -176,6 +194,29 @@ export default {
           height: 22px;
           max-height: 22px;
         }
+      }
+    }
+  }
+</style>
+<style lang="scss">
+  .v-menu__content {
+    top: 40px!important;
+    left: 0!important;
+    margin-left: -10px;
+    background-color: #fff;
+  }
+  .v-text-field {
+    .v-label--active {
+      transform: none;
+    }
+  }
+  .v-text-field {
+    .v-input__slot{
+      border: 0.5px solid #e3e3e3;
+      border-radius: 2px;
+      padding: 0 10px;
+      &:before {
+        border: none;
       }
     }
   }

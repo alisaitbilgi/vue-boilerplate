@@ -26,7 +26,6 @@ export default {
     min-width: 180px;
     background: #242424;
     padding-top: 150px;
-    display:none;
 
     .each-tab-wrapper {
       display: flex;
