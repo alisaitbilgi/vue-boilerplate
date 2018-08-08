@@ -5,7 +5,7 @@
         <div class="todo-item-text-wrapper">
           <div class="todo-item-type-selector">
             <v-select
-              :items="todoSelections"
+              :items="todoTypeSelections"
               label="Select Todo Type"
               :single-line="true"
             ></v-select>
@@ -50,13 +50,13 @@ export default {
     document.addEventListener('keypress', this.handleOnSubmit(this.setTodoItem))
   },
   beforeDestroy () {
-    document.removeEventListener('keypress', this.handleOnSubmit)
+    document.removeEventListener('keypress', this.handleOnSubmit(this.setTodoItem))
   },
   computed: {
     todoItemList: function () {
       return $store.state.todoItemList
     },
-    todoSelections: function () {
+    todoTypeSelections: function () {
       return ['Travel', 'Work', 'Personal']
     }
   },
