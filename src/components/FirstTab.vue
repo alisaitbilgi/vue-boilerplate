@@ -1,7 +1,7 @@
 <template>
   <div class="first-tab-container">
     <div class="todo-app-container">
-      <form class="todo-add-wrapper">
+      <form class="todo-add-wrapper" v-on:submit.prevent="setTodoItem">
         <div class="todo-item-text-wrapper">
           <div class="todo-item-type-selector">
             <v-select
@@ -10,7 +10,8 @@
               :single-line="true"
             ></v-select>
           </div>
-          <input id="todo-item-text-input" class="todo-item-text" placeholder="What To Do?" autocomplete="off"/>
+          <input id="todo-item-text-input" class="todo-item-text" placeholder="What To Do?"
+                 autocomplete="off"/>
         </div>
         <div class="todo-add-btn" v-on:click="setTodoItem">
           ADD
@@ -47,10 +48,7 @@ import $store from '../store/index.js'
 
 export default {
   mounted () {
-    document.addEventListener('keypress', this.handleOnSubmit(this.setTodoItem))
-  },
-  beforeDestroy () {
-    document.removeEventListener('keypress', this.handleOnSubmit(this.setTodoItem))
+    // document.addEventListener('keypress', this.handleOnSubmit(this.setTodoItem))
   },
   computed: {
     todoItemList: function () {
@@ -62,6 +60,7 @@ export default {
   },
   methods: {
     setTodoItem: function () {
+      console.log("girik=")
       const todoItemInput = document.querySelector('#todo-item-text-input')
       const todoItemText = todoItemInput.value.trim()
       const todoItemTbAdded = {
