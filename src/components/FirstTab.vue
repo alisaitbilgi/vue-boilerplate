@@ -48,7 +48,7 @@ import $store from '../store/index.js'
 
 export default {
   mounted () {
-    // document.addEventListener('keypress', this.handleOnSubmit(this.setTodoItem))
+    document.addEventListener('keypress', this.handleOnSubmit(this.setTodoItem))
   },
   computed: {
     todoItemList: function () {
@@ -60,7 +60,6 @@ export default {
   },
   methods: {
     setTodoItem: function () {
-      console.log("girik=")
       const todoItemInput = document.querySelector('#todo-item-text-input')
       const todoItemText = todoItemInput.value.trim()
       const todoItemTbAdded = {
