@@ -1,7 +1,7 @@
 <template>
   <div class="first-tab-container">
     <div class="todo-app-container">
-      <form class="todo-add-wrapper" v-on:submit.prevent="setTodoItem">
+      <form class="todo-add-wrapper" v-on:submit.prevent="handleToSetTodoItem">
         <div class="todo-item-text-wrapper">
           <div class="todo-item-type-selector">
             <v-select
@@ -13,9 +13,9 @@
           <input id="todo-item-text-input" class="todo-item-text" placeholder="What To Do?"
                  autocomplete="off"/>
         </div>
-        <div class="todo-add-btn" v-on:click="setTodoItem">
+        <button class="todo-add-btn" v-on:click="handleToSetTodoItem">
           ADD
-        </div>
+        </button>
       </form>
       <div class="todo-list-wrapper">
         <div class="todo-list-header">
@@ -30,10 +30,10 @@
           </div>
         </div>
         <div class="todo-list-content">
-          <div v-bind:key="eachTodoItem.text" v-for="eachTodoItem in todoItemList" class="each-todo-item">
-            <div class="each-todo-item-text">{{eachTodoItem.text}}</div>
-            <div class="each-todo-item-date">{{eachTodoItem.date}}</div>
-            <div class="each-todo-item-remove-icon">
+          <div v-bind:key="eachTodoItem.id" v-for="eachTodoItem in todoItemList" class="each-todo-item">
+            <div class="each-todo-item-text">{{eachTodoItem.description}}</div>
+            <div class="each-todo-item-date">{{eachTodoItem.created}}</div>
+            <div v-bind:id="eachTodoItem.id" class="each-todo-item-remove-icon" v-on:click="handleToRemoveTodoItem">
               X
             </div>
           </div>
@@ -45,10 +45,11 @@
 
 <script>
 import $store from '../store/index.js'
+import {getTodoList, setTodoItem, removeTodoItem} from '../utils/utils.js'
 
 export default {
   mounted () {
-    document.addEventListener('keypress', this.handleOnSubmit(this.setTodoItem))
+    getTodoList('shopping')
   },
   computed: {
     todoItemList: function () {
@@ -59,24 +60,20 @@ export default {
     }
   },
   methods: {
-    setTodoItem: function () {
+    handleToSetTodoItem: function () {
       const todoItemInput = document.querySelector('#todo-item-text-input')
       const todoItemText = todoItemInput.value.trim()
-      const todoItemTbAdded = {
-        text: todoItemText,
-        date: new Date()
-      }
 
       if (todoItemText !== '') {
-        $store.commit('SET_CURRENT_TODO', todoItemTbAdded)
+        setTodoItem('shopping', todoItemText)
         todoItemInput.value = ''
       }
     },
-    handleOnSubmit: function (executer) {
-      return (e) => {
-        if (e.charCode === 13) {
-          executer()
-        }
+    handleToRemoveTodoItem: function (e) {
+      const todoItemTbRemoved = e.target && e.target.id
+
+      if (todoItemTbRemoved) {
+        removeTodoItem('shopping', todoItemTbRemoved)
       }
     }
   }
@@ -204,6 +201,7 @@ export default {
           width: 10%;
           height: 22px;
           max-height: 22px;
+          cursor: pointer;
         }
       }
     }
