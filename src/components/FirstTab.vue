@@ -18,7 +18,7 @@
         </button>
       </form>
       <div class="todo-list-wrapper">
-        <div class="todo-list-header">
+        <div v-if="todoItemList.length > 0" class="todo-list-header">
           <div class="each-todo-item-text">
             Description
           </div>
@@ -29,14 +29,17 @@
             Remove
           </div>
         </div>
-        <div class="todo-list-content">
+        <div v-if="todoItemList.length > 0" class="todo-list-content">
           <div v-bind:key="eachTodoItem.id" v-for="eachTodoItem in todoItemList" class="each-todo-item">
             <div class="each-todo-item-text">{{eachTodoItem.description}}</div>
-            <div class="each-todo-item-date">{{eachTodoItem.created}}</div>
+            <div class="each-todo-item-date">{{moment(eachTodoItem.created).format('LLL')}}</div>
             <div v-bind:id="eachTodoItem.id" class="each-todo-item-remove-icon" v-on:click="handleToRemoveTodoItem">
               X
             </div>
           </div>
+        </div>
+        <div class="empty-list-explanation" v-if="todoItemList.length === 0">
+          You have nothing TO DO, right ?
         </div>
       </div>
     </div>
@@ -46,6 +49,7 @@
 <script>
 import $store from '../store/index.js'
 import {getTodoList, setTodoItem, removeTodoItem} from '../utils/utils.js'
+import moment from 'moment'
 
 export default {
   mounted () {
@@ -75,7 +79,8 @@ export default {
       if (todoItemTbRemoved) {
         removeTodoItem('shopping', todoItemTbRemoved)
       }
-    }
+    },
+    moment
   }
 }
 </script>
@@ -174,6 +179,12 @@ export default {
           &:last-child {
             border-bottom: none;
           }
+        }
+        .empty-list-explanation {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 250px;
         }
         .each-todo-item-text {
           display: block;
