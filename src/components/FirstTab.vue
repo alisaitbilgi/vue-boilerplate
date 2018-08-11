@@ -6,12 +6,12 @@
           <div class="todo-item-type-selector">
             <v-select
               :items="todoTypeSelections"
-              label="Select Todo Type"
+              label="Travel"
               :single-line="true"
+              @change="setTodoType"
             ></v-select>
           </div>
-          <input id="todo-item-text-input" class="todo-item-text" placeholder="What To Do?"
-                 autocomplete="off"/>
+          <input id="todo-item-text-input" class="todo-item-text" placeholder="What To Do?" autocomplete="off"/>
         </div>
         <button class="todo-add-btn" v-on:click="handleToSetTodoItem">
           ADD
@@ -53,23 +53,29 @@ import moment from 'moment'
 
 export default {
   mounted () {
-    getTodoList('shopping')
+    getTodoList(this.selectedTodoType)
   },
   computed: {
     todoItemList: function () {
-      return $store.state.todoItemList
+      return $store.state.todoItemList[this.selectedTodoType]
     },
     todoTypeSelections: function () {
-      return ['Travel', 'Work', 'Personal']
+      return ['Travel', 'Work', 'Shopping']
+    },
+    selectedTodoType: function () {
+      return $store.state.selectedTodoType
     }
   },
   methods: {
+    setTodoType: function (type) {
+      $store.commit('SET_TODO_TYPE', type)
+    },
     handleToSetTodoItem: function () {
       const todoItemInput = document.querySelector('#todo-item-text-input')
       const todoItemText = todoItemInput.value.trim()
 
       if (todoItemText !== '') {
-        setTodoItem('shopping', todoItemText)
+        setTodoItem(this.selectedTodoType, todoItemText)
         todoItemInput.value = ''
       }
     },
@@ -77,7 +83,7 @@ export default {
       const todoItemTbRemoved = e.target && e.target.id
 
       if (todoItemTbRemoved) {
-        removeTodoItem('shopping', todoItemTbRemoved)
+        removeTodoItem(this.selectedTodoType, todoItemTbRemoved)
       }
     },
     moment

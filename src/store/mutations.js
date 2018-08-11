@@ -1,16 +1,19 @@
 
 export default {
-  SET_TODO_ITEM: function (state, data) {
-    if (Array.isArray(state.todoItemList)) {
-      state.todoItemList.push(data)
+  SET_TODO_TYPE: function (state, data) {
+    state.selectedTodoType = data
+  },
+  SET_TODO_ITEM: function (state, {listName, data}) {
+    if (Array.isArray(state.todoItemList[listName])) {
+      state.todoItemList[listName].push(data)
     }
   },
-  SET_TODO_LIST: function (state, data) {
-    state.todoItemList = data
+  SET_TODO_LIST: function (state, {listName, data}) {
+    state.todoItemList[listName] = data
   },
-  REMOVE_TODO_ITEM: function (state, id) {
-    if (Array.isArray(state.todoItemList)) {
-      state.todoItemList = state.todoItemList.filter(each => each.id !== id)
+  REMOVE_TODO_ITEM: function (state, {listName, itemId}) {
+    if (Array.isArray(state.todoItemList[listName])) {
+      state.todoItemList[listName] = state.todoItemList[listName].filter(each => each.id !== itemId)
     }
   }
 }
