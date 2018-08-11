@@ -69,6 +69,7 @@ export default {
   methods: {
     setTodoType: function (type) {
       $store.commit('SET_TODO_TYPE', type)
+      getTodoList(type)
     },
     handleToSetTodoItem: function () {
       const todoItemInput = document.querySelector('#todo-item-text-input')
