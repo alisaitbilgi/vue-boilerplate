@@ -15,5 +15,11 @@ export default {
     if (Array.isArray(state.todoItemList[listName])) {
       state.todoItemList[listName] = state.todoItemList[listName].filter(each => each.id !== itemId)
     }
+  },
+  SET_ALERT_TRIGGER: function (state, {type, text, visibilityTimeout = 5000}) {
+    state.alertManager = {text, type, visible: true}
+    setTimeout(() => {
+      state.alertManager.visible = false
+    }, visibilityTimeout)
   }
 }

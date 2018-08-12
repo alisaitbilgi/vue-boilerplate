@@ -98,7 +98,9 @@ export default {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 30px);
+    position: relative;
+    top: 30px;
 
     .todo-app-container {
       display: flex;
@@ -173,15 +175,16 @@ export default {
           overflow-y: auto;
           border: 1px solid #e3e3e3;
           border-radius: 10px;
-          padding: 0 15px;
 
           .each-todo-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 100%;
+            width: calc(100% - 30px);
             height: 40px;
             border-bottom: 1px solid #e3e3e3;
+            padding: 0 15px;
+            overflow-x: hidden;
           }
           &:last-child {
             border-bottom: none;

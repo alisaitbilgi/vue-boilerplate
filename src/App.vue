@@ -61,6 +61,16 @@ export default {
         bottom: 80px;
         width: 100%;
         height: calc(100% - 120px);
+
+        .v-alert {
+          position: absolute;
+          background: green;
+          padding: 0;
+          margin: 0;
+          height: 30px;
+          width: calc(100% - 180px);
+          right: 0;
+        }
       }
 
       .application-footer {

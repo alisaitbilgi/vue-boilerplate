@@ -4,7 +4,12 @@ const state = {
     Work: [],
     Shopping: []
   },
-  selectedTodoType: 'Travel'
+  selectedTodoType: 'Travel',
+  alertManager: {
+    text: '',
+    type: '',
+    visible: false
+  }
 }
 
 export default state
