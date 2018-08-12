@@ -64,12 +64,17 @@ export default {
 
         .v-alert {
           position: absolute;
-          background: green;
           padding: 0;
           margin: 0;
           height: 30px;
           width: calc(100% - 180px);
           right: 0;
+        }
+        .success {
+          background: green;
+        }
+        .error {
+          background: red;
         }
       }
 

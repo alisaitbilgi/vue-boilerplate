@@ -11,7 +11,8 @@
               @change="setTodoType"
             ></v-select>
           </div>
-          <input id="todo-item-text-input" class="todo-item-text" placeholder="What To Do?" autocomplete="off"/>
+          <input name="ali" id="todo-item-text-input" class="todo-item-text" placeholder="What To Do?"
+                 autocomplete="off"/>
         </div>
         <button class="todo-add-btn" v-on:click="handleToSetTodoItem">
           ADD
