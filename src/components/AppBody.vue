@@ -25,7 +25,8 @@ export default {
   computed: {
     dashboardItems: function () {
       return [
-        {tabName: 'First Tab', routerLink: 'first-tab'}
+        {tabName: 'Fun Todos', routerLink: 'first-tab'},
+        {tabName: 'Work Todos', routerLink: 'second-tab'}
       ]
     },
     alertManager: function () {

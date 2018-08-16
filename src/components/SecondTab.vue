@@ -1,10 +1,10 @@
 <template>
-  <div class="first-tab-container">
+  <div class="second-tab-container">
     <div class="todo-app-container">
       <TodoForm
+        v-bind:selected-default-type="todoTypeSelections[0]"
         v-bind:todo-type-selections="todoTypeSelections"
         v-bind:selected-todo-type="selectedTodoType"
-        v-bind:selected-default-type="todoTypeSelections[0]"
       />
       <TodoList
         v-bind:todo-item-list="todoItemList"
@@ -34,7 +34,7 @@ export default {
       return $store.state.todoItemList[this.selectedTodoType]
     },
     todoTypeSelections: function () {
-      return ['Travel', 'Holiday', 'Shopping']
+      return ['Vue', 'React', 'Angular']
     },
     selectedTodoType: function () {
       return $store.state.selectedTodoType
@@ -50,7 +50,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .first-tab-container {
+  .second-tab-container {
     display: flex;
     justify-content: center;
     align-items: center;

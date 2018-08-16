@@ -4,7 +4,7 @@
       <div class="todo-item-type-selector">
         <v-select
           :items="todoTypeSelections"
-          label="Travel"
+          :label="selectedDefaultType"
           :single-line="true"
           @change="setTodoType"
         ></v-select>
@@ -32,6 +32,9 @@ export default {
       type: Array
     },
     selectedTodoType: {
+      type: String
+    },
+    selectedDefaultType: {
       type: String
     }
   },

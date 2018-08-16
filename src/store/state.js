@@ -1,8 +1,11 @@
 const state = {
   todoItemList: {
     Travel: [],
-    Work: [],
-    Shopping: []
+    Holiday: [],
+    Shopping: [],
+    Vue: [],
+    React: [],
+    Angular: []
   },
   selectedTodoType: 'Travel',
   alertManager: {
