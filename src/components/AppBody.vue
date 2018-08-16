@@ -6,20 +6,20 @@
     >
       {{alertManager.text}}
     </v-alert>
-    <Sidebar v-bind:dashboard-items="dashboardItems"/>
+    <AppSidebar v-bind:dashboard-items="dashboardItems"/>
     <ContentView />
   </div>
 </template>
 
 <script>
 import ContentView from './ContentView.vue'
-import Sidebar from './Sidebar.vue'
+import AppSidebar from './AppSidebar.vue'
 import $store from '../store/index.js'
 
 export default {
   name: 'AppBody',
   components: {
-    Sidebar,
+    AppSidebar,
     ContentView
   },
   computed: {

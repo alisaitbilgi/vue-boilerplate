@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'Sidebar',
+  name: 'AppSidebar',
   props: {
     dashboardItems: Array
   }
