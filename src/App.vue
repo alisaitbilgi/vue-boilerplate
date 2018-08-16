@@ -87,6 +87,7 @@ export default {
         width: 100%;
         height: 60px;
         background: #242424;
+        padding-left: 90px;
       }
     }
   }
