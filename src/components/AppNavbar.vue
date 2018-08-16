@@ -4,15 +4,29 @@
       <slot></slot>
     </div>
     <div class="header-container">
-      <span ng-if="navbarTitle">{{navbarTitle}}</span>
+      <div class="each-tab-wrapper" v-bind:key="eachTab.tabName" v-for="eachTab in dashboardItems">
+        <MenuItem v-bind:tab-menu-name="eachTab.tabName" v-bind:router-link="eachTab.routerLink"/>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import MenuItem from './MenuItem.vue'
+
 export default {
   name: 'Navbar',
-  props: ['navbarTitle']
+  components: {
+    MenuItem
+  },
+  props: {
+    navbarTitle: {
+      type: String
+    },
+    dashboardItems: {
+      type: Array
+    }
+  }
 }
 </script>
 
@@ -35,6 +49,25 @@ export default {
       align-items: center;
       justify-content: center;
       width: calc(100% - 180px);
+      height: 100%;
+
+      .each-tab-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        .each-tab {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #000;
+          width: 150px;
+          height: 100%;
+          padding: 0;
+        }
+      }
     }
   }
 </style>

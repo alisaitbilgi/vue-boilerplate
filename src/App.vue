@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <AppNavbar navbar-title="Linovi Vue Project">
+    <AppNavbar navbar-title="Linovi Vue Project" v-bind:dashboard-items="dashboardItems">
       <img class="navbar-logo" src="./assets/logo.png" />
     </AppNavbar>
     <AppBody />
@@ -19,6 +19,14 @@ export default {
     AppNavbar,
     AppBody,
     AppFooter
+  },
+  computed: {
+    dashboardItems: function () {
+      return [
+        {tabName: 'Fun Todos', routerLink: 'first-tab'},
+        {tabName: 'Work Todos', routerLink: 'second-tab'}
+      ]
+    }
   }
 }
 </script>

@@ -1,18 +1,21 @@
 <template>
   <div class="sidebar-container">
     <div class="each-tab-wrapper" v-bind:key="eachTab.tabName" v-for="eachTab in dashboardItems">
-      <router-link v-bind:id="eachTab.routerLink" :to="eachTab.routerLink" class="each-tab" exact>
-        {{eachTab.tabName}}
-      </router-link>
+      <MenuItem v-bind:tab-menu-name="eachTab.tabName" v-bind:router-link="eachTab.routerLink"/>
     </div>
   </div>
 </template>
 
 <script>
+import MenuItem from './MenuItem.vue'
+
 export default {
   name: 'AppSidebar',
   props: {
     dashboardItems: Array
+  },
+  components: {
+    MenuItem
   }
 }
 </script>
@@ -35,21 +38,6 @@ export default {
       height: 50px;
       cursor: pointer;
       border: 0.2px solid #393939;
-
-      .each-tab {
-        display: flex;
-        align-items: center;
-        padding-left: 30px;
-        text-decoration: none;
-        color: #fff;
-        font-size: 18px;
-        width: 100%;
-        height: 100%;
-        text-align: left;
-      }
-      &:hover {
-        background: #393939;
-      }
     }
   }
 </style>
